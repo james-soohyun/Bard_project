@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Bard</title>
+
+	<meta charset="UTF-8">
+
+	<meta name="description" content="James Lee's personal web application: Bard is a blog posting web application that utilizes Google Maps API to allow users to post personal anecdotes and record locations of posts.">
+
+<!-- 	{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'loginReg_app/home.css' %}"> -->
+
+	<link rel="stylesheet" type="text/css" href="static/loginReg_app/home.css">
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header">
+
+			<h2 id="header_text">B</h2>
+
+		</div>
+
+		<div id="navigation">
+
+			<img src="http://2photoshop.com/images/Halftone/step2.jpg">
+
+			<img src="http://2photoshop.com/images/Halftone/step2.jpg">
+
+			<img src="http://2photoshop.com/images/Halftone/step2.jpg">
+
+		</div>
+
+		<div id="content">
+
+			<div id="title">
+
+				<h1>Bard</h1>
+
+				<h4>Tell Your Story</h4>
+
+			</div>
+
+			<div id="user_registered">
+
+				{%if messages %}
+
+					{%for message in messages%}
+
+						<p>{{message}}</p>
+
+					{%endfor%}
+
+				{%endif%}
+
+			</div>
+
+			<div id="login">
+
+				<h3>Log In</h3>
+
+				<form action="/login" method="post">
+
+					{%csrf_token%}
+
+					<label>Email: </label>
+					<input type="text" name="email">
+					<br>
+
+					<label>Password: </label>
+					<input type="password" name="password">
+
+					<input type="submit" value="Login">
+
+				</form>
+
+			</div>
+
+			<div id="register">
+
+				<a href="/register">Create User</a>
+
+			</div>
+
+		</div>
+
+		<div id="about">
+
+			<div class="nav_item">
+
+				<a href="/">Home</a>
+
+			</div>
+
+			<div class="nav_item">
+
+				<a href="/">Register</a>
+
+			</div>
+
+			<div class="nav_item">
+
+				<a href="">Explore</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

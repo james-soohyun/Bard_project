@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Bard</title>
+
+	<meta charset="UTF-8">
+
+	<meta name="description" content="James Lee's personal web application: Bard is a blog posting web application that utilizes Google Maps API to allow users to post personal anecdotes and record locations of posts.">
+
+	<link rel="stylesheet" type="text/css" href="../static/stories_app/userProfile.css">
+
+</head>
+
+<body>
+<!-- 
+		<a href="/friends">Home</a> -->
+		<a href="logout">Logout</a>
+		<a href="newStory">New Story</a>
+		<a href="dashboard">Dashboard</a>
+
+		<h1>Welcome, {{user.alias}}</h1>
+
+		<p>Name: {{user.last_name}}, {{user.first_name}}</p>
+
+		<p>Birthday: {{user.birthday}}</p>
+
+		<p>Email Address: {{user.email}}</p>
+
+		<p>Created At: {{user.created_at}}</p>
+		<br>
+
+		{%if stories%}
+
+			{%for story in stories%}
+
+				<p>Story Title: {{story.title}}</p>
+
+				<p>Story Date: {{story.date}}</p>
+
+				<p>Story Location: {{story.location}}</p>
+
+				<p>Story Emotion: {{story.emotion}}</p>
+
+				<p>Story Content: {{story.content}}</p>
+
+				<br>
+
+			{%endfor%}
+
+		{%endif%}
+
+</body>
+
+</html>

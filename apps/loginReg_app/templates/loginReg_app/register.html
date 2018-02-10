@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Bard</title>
+
+	<meta charset="UTF-8">
+
+	<meta name="description" content="James Lee's personal web application: Bard is a blog posting web application that utilizes Google Maps API to allow users to post personal anecdotes and record locations of posts.">
+
+	<link rel="stylesheet" type="text/css" href="static/loginReg_app/register.css">
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header">
+
+			<h1 id="header_text">B</h1>
+
+		</div>
+
+		<div id="navigation">
+
+			<div class="nav_item">
+
+				<a href="/">Home</a>
+
+			</div>
+
+			<div class="nav_item">
+
+				<a href="/">Register</a>
+
+			</div>
+
+			<div class="nav_item">
+
+				<a href="">Explore</a>
+
+			</div>
+
+		</div>
+
+		<div id="content">
+
+			<div id="register">
+
+				<h3>New User:</h3>
+
+				<form action="/createUser" method="post">
+
+					{%csrf_token%}
+
+					<label>First Name:</label>
+					<input type="text" name="first_name">
+					<br>
+
+					<label>Last Name:</label>
+					<input type="text" name="last_name">
+					<br>
+
+					<label>Alias:</label>
+					<input type="text" name="alias">
+					<br>
+
+					<label>Birthday:</label>
+					<input type="date" name="birthday">
+					<br>
+
+					<label>Email:</label>
+					<input type="text" name="email">
+					<br>
+
+					<label>Password: </label>
+					<input type="text" name="password">
+					<p>*Password must be at least 8 characters*</p>
+					<br>
+
+					<label>Confirm Password: </label>
+					<input type="text" name="confirm">
+					<br>
+
+					<input type="submit" value="Create Account">
+
+				</form>
+
+			</div>
+
+			<div id="user_registered">
+
+				{%if messages %}
+
+					{%for message in messages%}
+
+						<p>{{message}}</p>
+
+					{%endfor%}
+
+				{%endif%}
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

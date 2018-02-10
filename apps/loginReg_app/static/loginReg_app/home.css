@@ -1,0 +1,89 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: Verdana, sans-serif;
+}
+
+#container {
+	width: 100%;
+	height: 1000px;
+	background-image: url("/static/loginReg_app/home.jpeg");
+}
+
+#header {
+	display: block;
+	background-color: silver;
+	height: 5%;
+	padding: 4px 150px;
+}
+
+h2 {
+	color: white;
+	font-size: 40px;
+}
+
+#navigation {
+	display: inline-block;
+	width: 3%;
+	height: 50%;
+	background-color: orange;
+	text-align: center;
+	padding-top: 18%;
+}
+
+#about {
+	background-color: gray;
+	height: 50px;
+	vertical-align: bottom;
+}
+
+.nav_item {
+	display: inline-block;
+	background-color: yellow;
+	margin: 20px 0px;
+	text-align: center;
+	padding: 10px;
+}
+
+#content {
+	display: inline-block;
+	width: 350px;
+	height: 200px;
+	position: absolute;
+	right: calc(40%);
+	margin-top: 280px;
+	margin-bottom: 180px;
+	background-color: gray;
+	text-align: center;
+}
+
+h1 {
+	font-size: 50px;
+	color: blue;
+}
+
+h4 {
+	font-size: 30px;
+	color: blue;
+}
+
+
+#login form {
+	background-color: yellow;
+	text-align: left;
+}
+
+h3 {
+	background-color: white;
+	color: blue;
+	text-align: left;
+}
+
+
+img {
+	height: 25px;
+	width: 25px;
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+}

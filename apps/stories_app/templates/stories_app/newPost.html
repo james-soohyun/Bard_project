@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Bard</title>
+
+	<meta charset="UTF-8">
+
+	<meta name="description" content="James Lee's personal web application: Bard is a blog posting web application that utilizes Google Maps API to allow users to post personal anecdotes and record locations of posts.">
+
+<!-- 	{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'loginReg_app/home.css' %}"> -->
+
+	<link rel="stylesheet" type="text/css" href="../static/stories_app/newPost.css">
+
+</head>
+
+<body>
+
+		<a href="logout">Logout</a>
+		<a href="/">User Profile</a>
+		<a href="dashboard">Dashboard</a>
+
+		<form action="/user/postStory/" method="post">
+
+			{%csrf_token%}
+
+			<label>Title: </label>
+			<input type="text" name="title">
+			<br>
+
+			<label>Date: </label>
+			<input type="date" name="date">
+			<br>
+
+			<label>Location: </label>
+			<input type="text" name="location" placeholder="e.g. Kirkland, WA, USA">
+			<br>
+
+			<label>Emotion: </label>
+			<select name="emotion">
+				<option value="Please select emotion">Please select emotion</option>
+				<option value="anger">Anger</option>
+				<option value="fear">Fear</option>
+				<option value="happiness">Happiness</option>
+				<option value="hope">Hope</option>
+				<option value="love">Love</option>
+				<option value="peace">Peace</option>
+				<option value="sorrow">Sorrow</option>
+				<option value="stress">Stress</option>
+				<option value="other">Other</option>
+			</select>
+			<br>
+
+			<label>Story: </label>
+			<textarea name="content"></textarea>
+			<br>
+
+			<input type="submit" value="Post Story">
+
+		</form>
+
+</body>
+
+</html>
