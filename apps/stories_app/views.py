@@ -5,11 +5,13 @@ from django.shortcuts import render, redirect
 
 from models import *
 
+from ..loginReg_app.models import User
+
 from django.contrib import messages
 
 # Create your views here.
 
-def showUser(request):
+def showProfile(request):
 	if 'email' not in request.session:
 		return redirect('/')
 	context = {
