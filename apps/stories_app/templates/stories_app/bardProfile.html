@@ -15,32 +15,22 @@
 </head>
 
 <body>
-<!-- 
-		<a href="/friends">Home</a> -->
-		<a href="logout">Logout</a>
-		<a href="newStory">New Story</a>
-		<a href="dashboard">Dashboard</a>
 
-		<h1>Welcome, {{user.alias}}</h1>
+		<a href="../logout">Logout</a>
+		<a href="../newStory">New Story</a>
+		<a href="../dashboard">Dashboard</a>
 
-		{%if messages%}
+		<h1>Welcome, {{curUser.alias}}</h1>
 
-			{%for message in messages%}
-
-				<p>{{message}}</p>
-
-			{%endfor%}
-
-		{%endif%}
+		<h2>{{user.alias}}'s Profile</h2>
 
 		<p>Name: {{user.last_name}}, {{user.first_name}}</p>
 
-		<p>Birthday: {{user.birthday}}</p>
-
-		<p>Email Address: {{user.email}}</p>
-
-		<p>Created At: {{user.created_at}}</p>
 		<br>
+
+		<a href="../follow/{{user.id}}">Follow</a>
+
+		<a href="../unfollow/{{user.id}}">Unfollow</a>
 
 		{%if stories%}
 

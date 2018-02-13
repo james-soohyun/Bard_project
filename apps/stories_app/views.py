@@ -20,23 +20,6 @@ def showProfile(request):
 	}
 	return render(request, 'stories_app/userProfile.html', context)
 
-# def showUser(request):
-# 	if 'email' not in request.session:
-# 		return redirect('/')
-# 	users = User.objects.exclude(id = request.session['id'])
-# 	curUser = User.objects.get(id = request.session['id'])
-# 	context = {
-# 		'users': User.objects.exclude(id = request.session['id'])
-# 		'friends': [],
-# 		'notFriends': []
-# 	}
-# 	for user in users:
-# 		if user in curUsers.friends.all():
-# 			context['friends'].append(user)
-# 		else:
-# 			context['notFriends'].append(user)
-# 	return render(request, 'stories_app/userProfile.html', context)
-
 def logout(request):
 	request.session.flush()
 	return redirect('/')
@@ -74,6 +57,39 @@ def postStory(request):
 
 	return redirect('/user/')
 
+def bardProfile(request, user_id):
+
+	context = {
+
+		'curUser': User.objects.get(id = request.session['id']),
+		'user': User.objects.get(id = user_id),
+		'stories': Story.objects.filter(bard = User.objects.get(id = user_id))
+
+	}
+
+	return render(request, 'stories_app/bardProfile.html', context)
+
+def follow(request, user_id):
+
+	if 'email' not in request.session:
+		return redirect('/')
+
+	curUser = User.objects.get(id = request.session['id'])
+	friendUser = User.objects.get(id = user_id)
+	curUser.followers.add(friendUser)
+	messages.success(request, "You are following {}".format(friendUser.alias))
+	return redirect('')
+
+def unfollow(request, user_id):
+
+	if 'email' not in request.session:
+		return redirect('/')
+
+	curUser = User.objects.get(id = request.session['id'])
+	friendUser = User.objects.get(id = user_id)
+	curUser.followers.remove(friendUser)
+	messages.success(request, "You are no longer following {}".format(friendUser.alias))
+	return redirect('')
 
 # def dashboard(request):
 # 	if 'email' not in request.session:
