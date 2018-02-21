@@ -36,7 +36,7 @@ def dashboard(request):
 	context = {
 
 		'user': User.objects.get(id = request.session['id']),
-		'stories': Story.objects.all()
+		'stories': Story.objects.exclude(bard = User.objects.get(id = request.session['id']))
 	}
 
 	return render(request, 'stories_app/dashboard.html', context)

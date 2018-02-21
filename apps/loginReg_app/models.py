@@ -72,7 +72,7 @@ class User(models.Model):
 	birthday = models.CharField(max_length = 10)
 	created_at = models.DateTimeField(auto_now_add = True)
 	updated_at = models.DateTimeField(auto_now = True)
-	followers = models.ManyToManyField("self")
+	following = models.ManyToManyField("self")
 	objects = UserManager()
 
 
